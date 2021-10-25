@@ -70,7 +70,7 @@ const MainContent = styled(Paper)`
 `;
 
 const Dashboard = ({ children, routes, width }) => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(true);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -85,7 +85,7 @@ const Dashboard = ({ children, routes, width }) => {
           <Sidebar
             routes={routes}
             PaperProps={{ style: { width: drawerWidth } }}
-            variant="temporary"
+            variant="permanent"
             open={mobileOpen}
             onClose={handleDrawerToggle}
           />
@@ -98,7 +98,7 @@ const Dashboard = ({ children, routes, width }) => {
         </Hidden>
       </Drawer>
       <AppContent>
-        <Header onDrawerToggle={handleDrawerToggle} />
+        {/* <Header onDrawerToggle={handleDrawerToggle} /> */}
         <MainContent p={isWidthUp("lg", width) ? 12 : 5}>
           {children}
         </MainContent>
