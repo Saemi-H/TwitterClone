@@ -27,8 +27,6 @@ import {
   TableHead,
   TableRow,
   Typography,
-  TextField,
-  CircularProgress,
 } from "@material-ui/core";
 
 import { spacing } from "@material-ui/system";
@@ -43,15 +41,9 @@ import {
   MapPin,
   ShoppingBag,
   Twitter,
-  Image,
 } from "react-feather";
 
-import {
-  GifOutlined,
-  BarChartOutlined,
-  EmojiEmotionsOutlined
-} from '@material-ui/icons'
-
+const Breadcrumbs = styled(MuiBreadcrumbs)(spacing);
 
 const Button = styled(MuiButton)(spacing);
 
@@ -73,13 +65,10 @@ const Centered = styled.div`
 
 const Avatar = styled(MuiAvatar)`
   display: inline-block;
-  height: 50px;
-  width: 50px;
+  height: 128px;
+  width: 128px;
 `;
 
-const BarChart = styled(BarChartOutlined)`
-  transform: rotate(90deg);
-`
 const AboutIcon = styled.span`
   display: flex;
   padding-right: ${(props) => props.theme.spacing(2)}px;
@@ -124,50 +113,26 @@ function Details() {
   return (
     <Card mb={6}>
       <CardContent>
+        <Typography variant="h6" gutterBottom>
+          Home
+        </Typography>
+
         <Spacer mb={4} />
-        <Grid container>
-          <Grid item>
-            <Avatar alt="Lucy Lavender" src="/static/img/avatars/avatar-1.jpg" />   
-          </Grid>
-          <Spacer mr={5} />
-          <Grid item xs={9}>
-          <TextField 
-            fullWidth
-            multiline
-            placeholder="what's happening?"
-           InputProps={{ disableUnderline: true }}
-          />    
-          </Grid>
-        </Grid>
-        <Spacer mb={2} />
-        <Grid container >
-          <Grid item xs={6}>
-            <Grid container>
-              <Grid item>
-                <Image />
-              </Grid>
-              <Grid item>
-                <GifOutlined />
-              </Grid>
-              <Grid item>
-                <BarChart />
-              </Grid>
-              <Grid item>
-                <EmojiEmotionsOutlined />
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={6}>
-          <Grid container>
-            <Grid item>
-              <CircularProgress
-                size={20}
-              />
-            </Grid>
-            <Divider vertical />
-          </Grid>
-        </Grid>
-        </Grid>
+
+        <Centered>
+          <Avatar alt="Lucy Lavender" src="/static/img/avatars/avatar-1.jpg" />
+          <Typography variant="body2" component="div" gutterBottom>
+            <Box fontWeight="fontWeightMedium">Lucy Lavender</Box>
+            <Box fontWeight="fontWeightRegular">Lead Developer</Box>
+          </Typography>
+
+          <Button mr={2} variant="contained" size="small">
+            Follow
+          </Button>
+          <Button mr={2} variant="contained" color="primary" size="small">
+            Message
+          </Button>
+        </Centered>
       </CardContent>
     </Card>
   );
