@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { withTheme } from "styled-components/macro";
 import { NavLink } from "react-router-dom";
-
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import { Helmet } from "react-helmet-async";
 
 import "../../vendor/roundedBarCharts";
@@ -28,7 +29,6 @@ import {
   TableRow,
   Typography,
   TextField,
-  CircularProgress,
 } from "@material-ui/core";
 
 import { spacing } from "@material-ui/system";
@@ -44,6 +44,7 @@ import {
   ShoppingBag,
   Twitter,
   Image,
+  PlusCircle,
 } from "react-feather";
 
 import {
@@ -80,6 +81,15 @@ const Avatar = styled(MuiAvatar)`
 const BarChart = styled(BarChartOutlined)`
   transform: rotate(90deg);
 `
+
+const TweetBtn =styled(Button)`
+  width: 65px;
+  height: 20px;
+  border-radius: 15px;
+  background-color: #1D9BF0;
+  color: #fff;
+`
+
 const AboutIcon = styled.span`
   display: flex;
   padding-right: ${(props) => props.theme.spacing(2)}px;
@@ -121,6 +131,19 @@ const TableWrapper = styled.div`
 `;
 
 function Details() {
+  const [char, setChar] = useState("")
+  const [progress, setProgress] = useState(0)
+  const countChar=(e)=>{
+    setChar(e.target.value)
+    console.log(e.target.value);
+    console.log(char.length);
+    if(char.length > 250){
+      alert("exceed!!");
+      setProgress(100)
+    }else{
+      setProgress(char.length/250*100)
+    }
+  }
   return (
     <Card mb={6}>
       <CardContent>
@@ -135,12 +158,14 @@ function Details() {
             fullWidth
             multiline
             placeholder="what's happening?"
-           InputProps={{ disableUnderline: true }}
+            InputProps={{ disableUnderline: true }}
+            value={char}
+            onChange={countChar}
           />    
           </Grid>
         </Grid>
         <Spacer mb={2} />
-        <Grid container >
+        <Grid container alignItems="center">
           <Grid item xs={6}>
             <Grid container>
               <Grid item>
@@ -160,11 +185,21 @@ function Details() {
           <Grid item xs={6}>
           <Grid container>
             <Grid item>
-              <CircularProgress
-                size={20}
+            <div style={{ width: 20, height: 20 }}>
+              <CircularProgressbar
+                value={progress}
               />
+              </div>
             </Grid>
-            <Divider vertical />
+            <Divider orientation="vertical" flexItem />
+            <Grid item>
+              <Button>
+                <PlusCircle />
+              </Button>
+              <TweetBtn>
+                Tweet
+              </TweetBtn>
+            </Grid>
           </Grid>
         </Grid>
         </Grid>
