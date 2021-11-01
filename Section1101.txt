@@ -1,0 +1,8 @@
+Section
+build seperated Article - 
+    profile Avatar, @mention date, dropdown btn 
+    CardContent
+    hash
+    picture (skip possible)
+    seperated components : buttons - comment, retweet, like, upload 
+import in profile component

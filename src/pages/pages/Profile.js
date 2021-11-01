@@ -4,16 +4,12 @@ import { NavLink } from "react-router-dom";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { Helmet } from "react-helmet-async";
-
 import "../../vendor/roundedBarCharts";
 import { Bar } from "react-chartjs-2";
-
 import { red, green, blue } from "@material-ui/core/colors";
-
 import {
   Avatar as MuiAvatar,
   Box,
-  Breadcrumbs as MuiBreadcrumbs,
   Button as MuiButton,
   Card as MuiCard,
   CardContent,
@@ -32,6 +28,8 @@ import {
 } from "@material-ui/core";
 
 import { spacing } from "@material-ui/system";
+
+import ArticleSection from '../pages/ArticleSection'
 
 import {
   Briefcase,
@@ -613,9 +611,7 @@ function Profile() {
       <Grid container spacing={6}>
         <Grid item xs={12} lg={4} xl={3}>
           <Details />
-          <Skills />
-          <About />
-          <Elsewhere />
+          <ArticleSection />
         </Grid>
         <Grid item xs={12} lg={8} xl={9}>
           <SalesRevenue />

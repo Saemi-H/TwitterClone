@@ -40,20 +40,6 @@ function EmptyCard() {
 function Blank() {
   return (
     <React.Fragment>
-      <Helmet title="Blank" />
-      <Typography variant="h3" gutterBottom display="inline">
-        Blank
-      </Typography>
-
-      <Breadcrumbs aria-label="Breadcrumb" mt={2}>
-        <Link component={NavLink} exact to="/">
-          Dashboard
-        </Link>
-        <Link component={NavLink} exact to="/">
-          Pages
-        </Link>
-        <Typography>Blank</Typography>
-      </Breadcrumbs>
 
       <Divider my={6} />
 

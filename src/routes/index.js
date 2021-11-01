@@ -125,6 +125,16 @@ const pagesRoutes = {
       name: "Profile",
       component: Profile,
     },
+    {
+      path: "/pages/chat",
+      name: "Chat",
+      component: Chat,
+    },
+    {
+      path: "/pages/blank",
+      name: "Blank",
+      component: Blank,
+    },
   ],
   component: null,
 };
